@@ -1,0 +1,62 @@
+table sales_plan
+	lineageTag: cad3ab03-b9e8-42c5-9724-554900414a4c
+	sourceLineageTag: [dbo].[sales_plan]
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 583adfc1-716f-43b0-b13a-a17391f3f786
+		sourceLineageTag: store_id
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c4fa24c-6b6a-44eb-877c-82e1373fd341
+		sourceLineageTag: fiscal_year
+		summarizeBy: sum
+		sourceColumn: fiscal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_period
+		dataType: int64
+		formatString: 0
+		lineageTag: e4a0bab0-6504-430c-9fd7-f8bc7b347b94
+		sourceLineageTag: fiscal_period
+		summarizeBy: sum
+		sourceColumn: fiscal_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column planned_net_sales
+		dataType: double
+		lineageTag: 4400a0b2-ad5a-44d4-bc35-a8b676c6fe8b
+		sourceLineageTag: planned_net_sales
+		summarizeBy: sum
+		sourceColumn: planned_net_sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column planned_units
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e7d932e-801b-4ed9-8baf-322a7f20dc31
+		sourceLineageTag: planned_units
+		summarizeBy: sum
+		sourceColumn: planned_units
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sales_plan = entity
+		mode: directLake
+		source
+			entityName: sales_plan
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

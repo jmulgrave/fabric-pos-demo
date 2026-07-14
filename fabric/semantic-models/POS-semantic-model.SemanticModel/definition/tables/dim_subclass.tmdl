@@ -1,0 +1,40 @@
+table dim_subclass
+	lineageTag: 6544f1d8-b3e6-4c58-9582-e7da660c8749
+	sourceLineageTag: [dbo].[dim_subclass]
+
+	column subclass_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 78d68b09-0e36-4e73-8111-190bac6a873b
+		sourceLineageTag: subclass_id
+		summarizeBy: none
+		sourceColumn: subclass_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column subclass_name
+		dataType: string
+		lineageTag: 70884c49-37f0-4672-a99b-846865529159
+		sourceLineageTag: subclass_name
+		summarizeBy: none
+		sourceColumn: subclass_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column class_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ff6108a2-d2cc-4876-80fe-07ea83954720
+		sourceLineageTag: class_id
+		summarizeBy: none
+		sourceColumn: class_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_subclass = entity
+		mode: directLake
+		source
+			entityName: dim_subclass
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

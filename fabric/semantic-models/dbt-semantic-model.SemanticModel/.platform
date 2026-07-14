@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "dbt-semantic-model"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "07e4bb01-e695-8246-4af1-cd51d3b2eaaf"
+  }
+}

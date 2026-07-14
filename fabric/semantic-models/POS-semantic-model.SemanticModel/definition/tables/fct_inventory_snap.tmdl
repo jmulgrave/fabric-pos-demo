@@ -1,0 +1,73 @@
+table fct_inventory_snap
+	lineageTag: 11a67f81-8dca-4bbb-856f-ae32aea2508d
+	sourceLineageTag: [dbo].[fct_inventory_snap]
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 42efa896-6379-4c74-9d24-03e5004038bc
+		sourceLineageTag: snapshot_date
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 80d9a60b-1f83-41ce-868f-c634e1477d46
+		sourceLineageTag: store_id
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: bed664e0-38d5-4540-9581-fedbc55e23f4
+		sourceLineageTag: item_id
+		summarizeBy: none
+		sourceColumn: item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column on_hand_units
+		dataType: int64
+		formatString: 0
+		lineageTag: dbabae1f-acd2-4823-9d51-fb5914c88788
+		sourceLineageTag: on_hand_units
+		summarizeBy: sum
+		sourceColumn: on_hand_units
+
+		annotation SummarizationSetBy = Automatic
+
+	column retail_value
+		dataType: double
+		lineageTag: ff926d18-0175-4efc-848d-586fbdcf9ccc
+		sourceLineageTag: retail_value
+		summarizeBy: sum
+		sourceColumn: retail_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_value
+		dataType: double
+		lineageTag: 1cbb3c0c-da26-40aa-9bd9-2edc14fd5fef
+		sourceLineageTag: cost_value
+		summarizeBy: sum
+		sourceColumn: cost_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_inventory_snap = entity
+		mode: directLake
+		source
+			entityName: fct_inventory_snap
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

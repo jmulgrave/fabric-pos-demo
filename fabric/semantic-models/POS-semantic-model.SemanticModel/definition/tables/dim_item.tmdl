@@ -1,0 +1,101 @@
+table dim_item
+	lineageTag: 21e1c12c-a4f4-435c-bedb-9a9c1cd54453
+	sourceLineageTag: [dbo].[dim_item]
+
+	column item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 759e5ff2-9388-40a5-a0ba-3dc6e111b7df
+		sourceLineageTag: item_id
+		summarizeBy: none
+		sourceColumn: item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_description
+		dataType: string
+		lineageTag: 7ad5ebc6-594b-49d3-93ce-2790db412f34
+		sourceLineageTag: item_description
+		summarizeBy: none
+		sourceColumn: item_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1181bff0-f1bf-420e-af32-977a15146498
+		sourceLineageTag: department_id
+		summarizeBy: sum
+		sourceColumn: department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column condition
+		dataType: string
+		lineageTag: efb775aa-d6d5-4335-a087-db82adc86d88
+		sourceLineageTag: condition
+		summarizeBy: none
+		sourceColumn: condition
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_cost
+		dataType: double
+		lineageTag: 6474f635-452a-49ce-98eb-c33ba92d3b29
+		sourceLineageTag: unit_cost
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column retail_price
+		dataType: double
+		lineageTag: 97e8c238-d6ae-410f-8f88-f425cfa19622
+		sourceLineageTag: retail_price
+		summarizeBy: sum
+		sourceColumn: retail_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column active_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1a65529e-cc4f-4358-b2fe-ae9412192e79
+		sourceLineageTag: active_flag
+		summarizeBy: none
+		sourceColumn: active_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column class_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 70b04cad-88f6-4aaa-9148-8ab1205ef254
+		sourceLineageTag: class_id
+		summarizeBy: sum
+		sourceColumn: class_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column subclass_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a5c12215-1c0f-42ec-acc7-d071f46684f8
+		sourceLineageTag: subclass_id
+		summarizeBy: none
+		sourceColumn: subclass_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_item = entity
+		mode: directLake
+		source
+			entityName: dim_item
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

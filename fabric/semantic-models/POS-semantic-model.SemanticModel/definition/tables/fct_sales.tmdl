@@ -1,0 +1,153 @@
+table fct_sales
+	lineageTag: 444afd5a-1e49-482f-b217-dae4e7c4ba75
+	sourceLineageTag: [dbo].[fct_sales]
+
+	measure profit_amount_2 = SUM('fct_sales'[extended_price]) - SUM('fct_sales'[cost_amount])
+		lineageTag: b54e53ff-e340-4249-96cc-189052c7b1ee
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: fc7397d2-2299-4ff1-a717-c1db8526e1e0
+		sourceLineageTag: store_id
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 032063ea-345d-4231-a96e-55f8625420dc
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 41cc979b-666d-4824-966b-87067b4ed12e
+		sourceLineageTag: item_id
+		summarizeBy: none
+		sourceColumn: item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 04b6b7c3-cfa9-4228-921f-eecf7a888189
+		sourceLineageTag: transaction_number
+		summarizeBy: sum
+		sourceColumn: transaction_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column line_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e0729d7-ef3c-48a3-be54-9e3d6c96599d
+		sourceLineageTag: line_number
+		summarizeBy: sum
+		sourceColumn: line_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_code
+		dataType: string
+		lineageTag: 6668aab0-440b-4bd3-8a62-f47d010354b7
+		sourceLineageTag: transaction_code
+		summarizeBy: none
+		sourceColumn: transaction_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column units
+		dataType: int64
+		formatString: 0
+		lineageTag: 5add81e9-7ba1-4150-a250-5c115feeafb8
+		sourceLineageTag: units
+		summarizeBy: sum
+		sourceColumn: units
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_retail
+		dataType: double
+		lineageTag: 50014311-abed-4641-ad31-48b7a5107809
+		sourceLineageTag: unit_retail
+		summarizeBy: sum
+		sourceColumn: unit_retail
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unit_cost
+		dataType: double
+		lineageTag: 33fb54c3-300b-4a75-83cd-6d3bd68ed66b
+		sourceLineageTag: unit_cost
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column extended_price
+		dataType: double
+		lineageTag: ade349d1-104c-4822-82d6-d98b86858c49
+		sourceLineageTag: extended_price
+		summarizeBy: sum
+		sourceColumn: extended_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column extended_discount
+		dataType: double
+		lineageTag: 34887fd6-fff7-43cc-abc1-ce6cb2bad31b
+		sourceLineageTag: extended_discount
+		summarizeBy: sum
+		sourceColumn: extended_discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_amount
+		dataType: double
+		lineageTag: 1536abc1-7a13-4b3e-8654-c01dcaf50aad
+		sourceLineageTag: cost_amount
+		summarizeBy: sum
+		sourceColumn: cost_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column profit_amount
+		dataType: double
+		lineageTag: fdbe2d4a-e172-4033-80bb-5fb81ebbb822
+		sourceLineageTag: profit_amount
+		summarizeBy: sum
+		sourceColumn: profit_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_sales = entity
+		mode: directLake
+		source
+			entityName: fct_sales
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

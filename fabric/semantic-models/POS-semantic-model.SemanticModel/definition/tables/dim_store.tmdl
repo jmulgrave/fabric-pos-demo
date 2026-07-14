@@ -1,0 +1,118 @@
+table dim_store
+	lineageTag: fd55faed-b68e-48d6-ac12-730975e360b3
+	sourceLineageTag: [dbo].[dim_store]
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: fcf5839e-4f7e-4839-9b0c-a553665f8e57
+		sourceLineageTag: store_id
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_name
+		dataType: string
+		lineageTag: 000b2318-24c4-427f-9308-5ae4951878f4
+		sourceLineageTag: store_name
+		summarizeBy: none
+		sourceColumn: store_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column banner
+		dataType: string
+		lineageTag: 6e588131-5ee3-4691-b7ab-8ed837fd3580
+		sourceLineageTag: banner
+		summarizeBy: none
+		sourceColumn: banner
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_type
+		dataType: string
+		lineageTag: 985f83cb-f950-4e80-af71-d48111307891
+		sourceLineageTag: store_type
+		summarizeBy: none
+		sourceColumn: store_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column district
+		dataType: int64
+		formatString: 0
+		lineageTag: e928e071-04d9-4646-8bd5-e817020f49f5
+		sourceLineageTag: district
+		summarizeBy: sum
+		sourceColumn: district
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: fadffa28-716e-47a5-b7a5-c50c97518125
+		sourceLineageTag: state
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 7cff0b98-bc1e-4468-97c0-244d0e9373a1
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: 6b502d6a-3c1e-46e5-8606-a2c4263aba38
+		sourceLineageTag: latitude
+		summarizeBy: sum
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: 3ff746e7-8879-4ed0-a27b-23c72c099872
+		sourceLineageTag: longitude
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column selling_sq_ft
+		dataType: int64
+		formatString: 0
+		lineageTag: 1946626d-a197-421c-ab00-73b7ec3df1f3
+		sourceLineageTag: selling_sq_ft
+		summarizeBy: sum
+		sourceColumn: selling_sq_ft
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e6757a4e-b085-4fd6-b8b7-86166c25811e
+		sourceLineageTag: active_flag
+		summarizeBy: none
+		sourceColumn: active_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_store = entity
+		mode: directLake
+		source
+			entityName: dim_store
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

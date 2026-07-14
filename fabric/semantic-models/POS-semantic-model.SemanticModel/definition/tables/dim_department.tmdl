@@ -1,0 +1,41 @@
+table dim_department
+	lineageTag: a1b8c5b5-6510-45d6-b566-a12bf70bb3a3
+	sourceLineageTag: [dbo].[dim_department]
+
+	column department_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e3eb210-2f5f-4fb2-bac4-b4fac6c018ba
+		sourceLineageTag: department_id
+		summarizeBy: none
+		sourceColumn: department_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: d87b9e99-094c-4968-965d-429aadf97212
+		sourceLineageTag: department_name
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column catalog_sku_pct
+		dataType: double
+		lineageTag: a0a47b50-a452-4341-9737-5f1c6bb236b6
+		sourceLineageTag: catalog_sku_pct
+		summarizeBy: none
+		sourceColumn: catalog_sku_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_department = entity
+		mode: directLake
+		source
+			entityName: dim_department
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

@@ -1,0 +1,71 @@
+table fct_receipts
+	lineageTag: a2835a4a-efbd-4473-add0-4be51da9a107
+	sourceLineageTag: [dbo].[fct_receipts]
+
+	column receipt_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ad979665-537b-4ec7-bb01-33673ab319de
+		sourceLineageTag: receipt_date
+		summarizeBy: none
+		sourceColumn: receipt_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 47a66fd0-8f2f-4524-be02-1aea5f7b15d9
+		sourceLineageTag: store_id
+		summarizeBy: sum
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5048de1c-190c-4dab-a0b5-4212f5a76d8d
+		sourceLineageTag: item_id
+		summarizeBy: none
+		sourceColumn: item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column units_received
+		dataType: int64
+		formatString: 0
+		lineageTag: b34a5d8b-84cd-4e30-b340-c096777c1ccf
+		sourceLineageTag: units_received
+		summarizeBy: sum
+		sourceColumn: units_received
+
+		annotation SummarizationSetBy = Automatic
+
+	column po_number
+		dataType: int64
+		formatString: 0
+		lineageTag: b00754fe-b0e9-4df2-8cce-66e65ae7115a
+		sourceLineageTag: po_number
+		summarizeBy: sum
+		sourceColumn: po_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column vendor_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 38a45005-41f0-41ba-9bbb-b0f57498ba65
+		sourceLineageTag: vendor_id
+		summarizeBy: none
+		sourceColumn: vendor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_receipts = entity
+		mode: directLake
+		source
+			entityName: fct_receipts
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

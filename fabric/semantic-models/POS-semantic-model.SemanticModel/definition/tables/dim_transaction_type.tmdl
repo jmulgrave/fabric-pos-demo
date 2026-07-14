@@ -1,0 +1,59 @@
+table dim_transaction_type
+	lineageTag: eab302f2-e9b8-4960-b065-38a9eaff8459
+	sourceLineageTag: [dbo].[dim_transaction_type]
+
+	column transaction_code
+		dataType: string
+		lineageTag: fcf7f46c-2453-4502-bca5-0598efd71451
+		sourceLineageTag: transaction_code
+		summarizeBy: none
+		sourceColumn: transaction_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 231bc372-7439-4c47-a638-3eee9703795a
+		sourceLineageTag: description
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 0f973577-7125-4b72-9546-12498adde169
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column in_sample_data
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 950fe3d4-8783-407a-b031-5fce5f8d4117
+		sourceLineageTag: in_sample_data
+		summarizeBy: none
+		sourceColumn: in_sample_data
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct_of_sample_lines
+		dataType: double
+		lineageTag: e7589a7b-2c10-4321-96a5-d32925eb4697
+		sourceLineageTag: pct_of_sample_lines
+		summarizeBy: none
+		sourceColumn: pct_of_sample_lines
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_transaction_type = entity
+		mode: directLake
+		source
+			entityName: dim_transaction_type
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

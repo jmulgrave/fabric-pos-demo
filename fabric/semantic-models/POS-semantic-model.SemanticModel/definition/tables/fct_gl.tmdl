@@ -1,0 +1,105 @@
+table fct_gl
+	lineageTag: 223c165e-a8bd-4234-a7ce-54df1a04b1f9
+	sourceLineageTag: [dbo].[fct_gl]
+
+	column date_key
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f49bd979-bd4f-4345-b863-69ef97f8a044
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_id
+		dataType: int64
+		formatString: 0
+		lineageTag: da213963-fcaf-48f2-b854-77cf60653e4d
+		sourceLineageTag: account_id
+		summarizeBy: none
+		sourceColumn: account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_id
+		dataType: double
+		formatString: 0
+		lineageTag: e78c1b8d-a2fb-4881-8e46-4c7aaf6487ed
+		sourceLineageTag: store_id
+		summarizeBy: sum
+		sourceColumn: store_id
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		lineageTag: 20788697-52bd-48e2-80d8-cf9c79708d91
+		sourceLineageTag: cost_center
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_period
+		dataType: int64
+		formatString: 0
+		lineageTag: c7e8fc53-a8cc-4b5a-a984-23bae317c66c
+		sourceLineageTag: fiscal_period
+		summarizeBy: sum
+		sourceColumn: fiscal_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d459a87-bcde-479a-bf21-0d5144a49c45
+		sourceLineageTag: fiscal_year
+		summarizeBy: sum
+		sourceColumn: fiscal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column debit_amount
+		dataType: double
+		lineageTag: a22b6bcf-0b00-4466-916a-41a5f5f0bf80
+		sourceLineageTag: debit_amount
+		summarizeBy: sum
+		sourceColumn: debit_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column credit_amount
+		dataType: double
+		lineageTag: 8b198b0e-9d57-4abc-b36b-2260f0ba4f67
+		sourceLineageTag: credit_amount
+		summarizeBy: sum
+		sourceColumn: credit_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_amount
+		dataType: double
+		lineageTag: 5ddedb0f-b882-417f-b591-037cb4154b14
+		sourceLineageTag: net_amount
+		summarizeBy: sum
+		sourceColumn: net_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fct_gl = entity
+		mode: directLake
+		source
+			entityName: fct_gl
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

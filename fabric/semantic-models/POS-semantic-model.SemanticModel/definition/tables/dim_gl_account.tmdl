@@ -1,0 +1,52 @@
+table dim_gl_account
+	lineageTag: ba6f3c53-43c3-41a5-9e99-60aa2fd37d1f
+	sourceLineageTag: [dbo].[dim_gl_account]
+
+	column account_id
+		dataType: int64
+		formatString: 0
+		lineageTag: bc994f20-47bc-48e2-a92d-d7e1811c00f9
+		sourceLineageTag: account_id
+		summarizeBy: none
+		sourceColumn: account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_description
+		dataType: string
+		lineageTag: 1b724542-7063-4c6b-a23f-4964c753fe51
+		sourceLineageTag: account_description
+		summarizeBy: none
+		sourceColumn: account_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column account_type
+		dataType: string
+		isHidden
+		lineageTag: 32687387-2f6e-4b58-aebe-7a701fd60c55
+		sourceLineageTag: account_type
+		summarizeBy: none
+		sourceColumn: account_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_mapping
+		dataType: int64
+		formatString: 0
+		lineageTag: 2928f546-23fe-4803-827e-42e288f3de83
+		sourceLineageTag: department_mapping
+		summarizeBy: none
+		sourceColumn: department_mapping
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_gl_account = entity
+		mode: directLake
+		source
+			entityName: dim_gl_account
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+

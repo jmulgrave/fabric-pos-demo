@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "POS Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ed6d230f-bb11-b731-4222-d1b1b585651f"
+  }
+}

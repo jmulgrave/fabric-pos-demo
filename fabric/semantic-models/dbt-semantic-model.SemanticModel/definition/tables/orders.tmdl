@@ -1,0 +1,111 @@
+table orders
+	lineageTag: c6211043-288c-45f2-b9e1-d368d258ffbc
+	sourceLineageTag: [jaffle_shop].[orders]
+
+	column order_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ef3f83fa-c0f0-4ea9-a91f-06813257dfce
+		sourceLineageTag: order_id
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0d4300a3-9f8a-4b12-951d-d0e546a21df1
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: b4c3b53b-246c-4d82-95c2-c102332bd575
+		sourceLineageTag: order_date
+		summarizeBy: none
+		sourceColumn: order_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		sourceProviderType: varchar(16)
+		lineageTag: 1cea2d6d-b81c-4ac6-b21f-2f172af5a844
+		sourceLineageTag: status
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_card_amount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3831498a-5319-4355-b684-f15474b7d954
+		sourceLineageTag: credit_card_amount
+		summarizeBy: none
+		sourceColumn: credit_card_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column coupon_amount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d6829f41-0fcc-4c73-9e38-594b5992666f
+		sourceLineageTag: coupon_amount
+		summarizeBy: none
+		sourceColumn: coupon_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column bank_transfer_amount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 29a39f44-3e38-4a16-a677-f9dbbe6d0d91
+		sourceLineageTag: bank_transfer_amount
+		summarizeBy: none
+		sourceColumn: bank_transfer_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column gift_card_amount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 2ad05d2c-2fbb-4c15-8746-8e071abf05ac
+		sourceLineageTag: gift_card_amount
+		summarizeBy: none
+		sourceColumn: gift_card_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 64f1c5ec-51b2-4304-90df-8a40e08af44e
+		sourceLineageTag: amount
+		summarizeBy: none
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition orders = entity
+		mode: directLake
+		source
+			entityName: orders
+			schemaName: jaffle_shop
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,70 @@
+relationship 17c3c3ea-3f23-d2dc-146a-3a060875c10a
+	fromColumn: dim_subclass.class_id
+	toColumn: dim_class.class_id
+
+relationship 09ff2d67-50b5-ffb2-1233-49f98033b888
+	fromColumn: dim_item.subclass_id
+	toColumn: dim_subclass.subclass_id
+
+relationship 68613165-b976-1a66-0fe6-63ef210c20c9
+	fromColumn: dim_class.department_id
+	toColumn: dim_department.department_id
+
+relationship f66ea4b8-8592-cb88-0d43-9786deb23c8a
+	isActive: false
+	fromColumn: dim_item.department_id
+	toColumn: dim_department.department_id
+
+relationship d71c8611-c3c4-658e-6a20-63e3ddf3d74f
+	fromColumn: fct_inventory_snap.store_id
+	toColumn: dim_store.store_id
+
+relationship 48d13e30-9d12-1dd2-3fac-df246d21a318
+	isActive: false
+	fromColumn: dim_item.class_id
+	toColumn: dim_subclass.class_id
+
+relationship 9de56cf9-e41d-2188-0087-d2d541305291
+	fromColumn: fct_inventory_snap.item_id
+	toColumn: dim_item.item_id
+
+relationship e9fb1d31-ae2d-1e0e-1ed1-41f35dc88c8d
+	fromColumn: fct_receipts.vendor_id
+	toColumn: dim_vendor.vendor_id
+
+relationship f174c1a1-f261-a9fb-24ce-9503c939703b
+	fromColumn: fct_sales.transaction_code
+	toColumn: dim_transaction_type.transaction_code
+
+relationship d1cdfe8c-5ac1-9f0e-d870-56f0839ba08c
+	fromColumn: fct_receipts.item_id
+	toColumn: dim_item.item_id
+
+relationship c8049c05-b799-5e41-72b2-cb555f6ee604
+	fromColumn: fct_receipts.receipt_date
+	toColumn: dim_calendar.date_key
+
+relationship bd2fb4f7-f3fa-16e0-bba1-3ea54c0fd5b3
+	fromColumn: fct_sales.date_key
+	toColumn: dim_calendar.date_key
+
+relationship 88a59827-73df-f168-e263-efc13e396f17
+	fromColumn: fct_sales.item_id
+	toColumn: dim_item.item_id
+
+relationship 5fee8c25-8046-f4c2-0875-2bc8130c94eb
+	fromColumn: fct_sales.store_id
+	toColumn: dim_store.store_id
+
+relationship 8931494e-2581-a7b8-9ac0-e1f0b40702b5
+	fromColumn: sales_plan.store_id
+	toColumn: dim_store.store_id
+
+relationship d5e6bec1-7e0b-e9a1-f345-920eafacbd56
+	fromColumn: fct_gl.account_id
+	toColumn: dim_gl_account.account_id
+
+relationship ec66d500-baf9-42ac-9773-25d5a3265fbe
+	fromColumn: fct_gl.date_key
+	toColumn: dim_calendar.date_key
+

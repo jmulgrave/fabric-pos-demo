@@ -1,0 +1,11 @@
+expression DatabaseQuery =
+		let
+		    database = Sql.Database("WCR6ZORQ6KMEBC7RGRPPFCJ4DA-GHPOUPKZF63UTCFRTMIEZYUNBI.datawarehouse.fabric.microsoft.com", "c4544861-18be-44b5-9455-8db34e7c172b")
+		in
+		    database
+	lineageTag: 5fa4e6be-f400-4e0b-a6a5-bbf5d8d3a24d
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[jaffle_shop].[stg_customers]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[jaffle_shop].[stg_orders]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[jaffle_shop].[stg_payments]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[jaffle_shop].[raw_payments]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[jaffle_shop].[raw_orders]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[jaffle_shop].[raw_customers]"}},"objectType":"Table"}]
+

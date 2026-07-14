@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "calculate-sale-profits"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2e7470cf-28f8-81f4-43a4-06e8c563c605"
+  }
+}

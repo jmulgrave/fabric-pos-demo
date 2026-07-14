@@ -1,0 +1,118 @@
+table dim_calendar
+	lineageTag: 1a1cb56e-f026-4a68-b932-a04298ce86c2
+	sourceLineageTag: [dbo].[dim_calendar]
+
+	column date_key
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: acc61216-2939-4ab8-aa9a-77b4ee6c6587
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_name
+		dataType: string
+		lineageTag: f2b36734-876a-4c90-87b5-2fde95c9533f
+		sourceLineageTag: day_name
+		summarizeBy: none
+		sourceColumn: day_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 4ca7229b-158d-4ebf-aa68-4c272d4711ce
+		sourceLineageTag: month_name
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 516f92fe-054b-446c-a34b-dd703e9cea8d
+		sourceLineageTag: day_of_week
+		summarizeBy: sum
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column calendar_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 56302e29-12c3-4b0f-86f9-07580429ee7c
+		sourceLineageTag: calendar_year
+		summarizeBy: sum
+		sourceColumn: calendar_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fe3d9e8-85db-4b3f-a639-a6201718fd78
+		sourceLineageTag: fiscal_year
+		summarizeBy: sum
+		sourceColumn: fiscal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_quarter
+		dataType: string
+		lineageTag: 14a47968-52dc-4c1f-9e86-5ae0c194e578
+		sourceLineageTag: fiscal_quarter
+		summarizeBy: none
+		sourceColumn: fiscal_quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_period
+		dataType: int64
+		formatString: 0
+		lineageTag: 385a65f8-49bb-47a8-953a-279df4a03c1d
+		sourceLineageTag: fiscal_period
+		summarizeBy: sum
+		sourceColumn: fiscal_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscal_year_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a599b31-297f-4618-bac7-9ad36817ebd9
+		sourceLineageTag: fiscal_year_week
+		summarizeBy: sum
+		sourceColumn: fiscal_year_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4a265adc-ec49-4ddd-be7e-1ec2a55d1934
+		sourceLineageTag: is_weekend
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_holiday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d5a31412-ed2e-475d-8f2f-d802b21c5936
+		sourceLineageTag: is_holiday
+		summarizeBy: none
+		sourceColumn: is_holiday
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_calendar = entity
+		mode: directLake
+		source
+			entityName: dim_calendar
+			schemaName: dbo
+			expressionSource: 'DirectLake - bronze_lakehouse'
+
